@@ -15,7 +15,7 @@ interface Book {
   rating: number;
   description: string;
   likes: number;
-  addedAt: Date;
+  created_at: string;
 }
 
 interface BookListProps {

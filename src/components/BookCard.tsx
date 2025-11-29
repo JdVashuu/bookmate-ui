@@ -12,7 +12,7 @@ interface BookCardProps {
     rating: number;
     description: string;
     likes: number;
-    addedAt: Date;
+    created_at: string;
   };
   onLike: (id: string) => void;
 }
@@ -24,8 +24,9 @@ const BookCard = ({ book, onLike }: BookCardProps) => {
   };
 
   const isRecent = () => {
+    const addedAt = new Date(book.created_at);
     const daysSinceAdded = Math.floor(
-      (Date.now() - book.addedAt.getTime()) / (1000 * 60 * 60 * 24)
+      (Date.now() - addedAt.getTime()) / (1000 * 60 * 60 * 24)
     );
     return daysSinceAdded <= 3;
   };
